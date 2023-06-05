@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reverse Number</title>
+</head>
+<body>
+  <h1>Reverse Number</h1>
+
+  <label for="numberInput">Enter a Number:</label>
+  <input type="number" id="numberInput">
+  <button onclick="reverseAndDisplay()">Reverse</button>
+
+  <p id="result"></p>
+
+  <script>
+    // JavaScript arrow function to reverse a number
+    const reverseNumber = number => {
+      const reversed = Number(String(number).split('').reverse().join(''));
+      return reversed;
+    };
+
+    // Function to reverse the user input and display the result
+    const reverseAndDisplay = () => {
+      const numberInput = document.getElementById('numberInput').value;
+      const givenNumber = parseInt(numberInput);
+
+      // Reverse the given number
+      const reversedNumber = reverseNumber(givenNumber);
+
+      // Display the result in HTML
+      const resultElement = document.getElementById('result');
+      resultElement.textContent = `Given Number: ${givenNumber}, Reversed Number: ${reversedNumber}`;
+    };
+  </script>
+</body>
+</html>

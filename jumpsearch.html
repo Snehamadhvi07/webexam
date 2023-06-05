@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jump Search Demo</title>
+  </head>
+  <body>
+    <h1>Jump Search Demo</h1>
+    <button onclick="jumpSearch()">Run Jump Search Demo</button>
+    <script>
+      function jumpSearch() {
+        let nums = prompt("Enter a list of numbers (separated by commas):")
+          .split(",")
+          .map((n) => parseInt(n.trim()));
+        let key = parseInt(prompt("Enter the key to search for:"));
+
+        // perform jump search
+        let n = nums.length;
+        let step = Math.floor(Math.sqrt(n));
+        let prev = 0;
+        while (nums[Math.min(step, n) - 1] < key) {
+          prev = step;
+          step += Math.floor(Math.sqrt(n));
+          if (prev >= n) {
+            // key is not in the list
+            alert(`${key} not found in list.`);
+            return;
+          }
+        }
+        while (nums[prev] < key) {
+          prev++;
+          if (prev === Math.min(step, n)) {
+            // key is not in the list
+            alert(`${key} not found in list.`);
+            return;
+          }
+        }
+        if (nums[prev] === key) {
+          // key is found in the list
+          alert(`${key} found at index ${prev} in list: [${nums}]`);
+        } else {
+          // key is not in the list
+          alert(`${key} not found in list.`);
+        }
+      }
+    </script>
+  </body>
+</html>

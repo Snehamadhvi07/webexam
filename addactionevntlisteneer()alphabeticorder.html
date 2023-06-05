@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>String Sorting Example</title>
+    <script>
+      function alpha(str) {
+        var arr = str.split(""); // splits the string
+        res = arr.sort().join(""); // sort the array and join to form a string
+        return res; // returns the result
+      }
+      
+      function runStringSortingExample() {
+        var inputString = "nitte meenakshi";
+        var sortedString = alpha(inputString);
+        
+        document.getElementById("output").textContent = sortedString;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>String Sorting Example</h1>
+    
+    <button onclick="runStringSortingExample()">Run String Sorting Example</button>
+    
+    <div id="output"></div>
+  </body>
+</html>

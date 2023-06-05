@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>String Manipulation Example</title>
+    <script>
+      function capitalizeString(str) {
+        let words = str.split(" ");
+        for (let i = 0; i < words.length; i++) {
+          words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+        }
+        return words.join(" ");
+      }
+      
+      function splitString(str) {
+        return str.split(" ");
+      }
+      
+      function runStringManipulationExample() {
+        var inputString = "hello there";
+        var capitalizedString = capitalizeString(inputString);
+        
+        document.getElementById("output1").textContent = `Capitalized string is: ${capitalizedString}`;
+        
+        var str = "the quick brown fox jumps over the lazy dog";
+        var words = splitString(str);
+        
+        document.getElementById("output2").textContent = words;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>String Manipulation Example</h1>
+    
+    <button onclick="runStringManipulationExample()">Run String Manipulation Example</button>
+    
+    <div id="output1"></div>
+    <div id="output2"></div>
+  </body>
+</html>

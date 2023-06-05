@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map Example</title>
+    <script>
+      function runMapExample() {
+        const myMap = new Map();
+        myMap.set("foo", "hello");
+        myMap.set("bar", "world");
+        myMap.set("baz", "!");
+        
+        var output = document.getElementById("output");
+        
+        output.innerHTML = myMap.get("foo") + "<br>"; // "hello"
+        output.innerHTML += myMap.get("qux") + "<br>"; // undefined
+        
+        for (const [key, value] of myMap) {
+          output.innerHTML += `${key}: ${value}<br>`;
+        }
+        
+        myMap.delete("bar");
+        
+        output.innerHTML += myMap.size + "<br>"; // 2
+        
+        myMap.clear();
+        
+        output.innerHTML += myMap.size; // 0
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Map Example</h1>
+    
+    <button onclick="runMapExample()">Run Map Example</button>
+    
+    <div id="output"></div>
+  </body>
+</html>

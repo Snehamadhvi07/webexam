@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Set Example</title>
+    <script>
+      function runSetExample() {
+        const mySet = new Set();
+        mySet.add("foo");
+        mySet.add("bar");
+        mySet.add("baz");
+        
+        document.getElementById("output").textContent = mySet.has("foo"); // true
+        document.getElementById("output").textContent += "\n\n" + mySet.has("qux"); // false
+        
+        for (const value of mySet) {
+          document.getElementById("output").textContent += "\n\n" + value;
+        }
+        
+        mySet.delete("bar");
+        
+        document.getElementById("output").textContent += "\n\n" + mySet.size; // 2
+        
+        mySet.clear();
+        
+        document.getElementById("output").textContent += "\n\n" + mySet.size; // 0
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Set Example</h1>
+    
+    <button onclick="runSetExample()">Run Set Example</button>
+    
+    <div id="output"></div>
+  </body>
+</html>
