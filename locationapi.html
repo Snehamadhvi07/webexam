@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<title>Latitude and longitude of the user's position</title>
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="text-align:center">
+   <h1 style="color: rgba(14, 21, 126, 0.908)">Welcome!</h1>
+   <h3>Click the button to identify the users location</h3>
+   <div>
+      <button onclick="myGeolocator()">
+         Get location
+      </button>
+      <div id="result"></div>
+   </div>   
+   <script>
+      let result = document.getElementById("result");
+      let userLocation = navigator.geolocation;
+      function myGeolocator() {
+         if(userLocation) {
+            userLocation.getCurrentPosition(success);
+         } else {
+            "The geolocation API is not supported by your browser.";
+         }
+      }
+      function success(data) {
+         let lat = data.coords.latitude;
+         let long = data.coords.longitude;
+         result.innerHTML = "Latitude: "
+         + lat
+         + "<br>Longitude: "
+         + long;
+      }
+   </script>
+</body>
+</html>
